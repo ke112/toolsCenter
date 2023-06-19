@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import 'logic.dart';
@@ -31,7 +29,7 @@ class HocProcessPage extends StatelessWidget {
       ),
       body: GetBuilder<HocProcessLogic>(builder: (logic) {
         return Container(
-          padding: EdgeInsets.all(10.w),
+          padding: EdgeInsets.all(10),
           child: TextField(
             controller: state.textController,
             focusNode: FocusNode(),
@@ -39,7 +37,7 @@ class HocProcessPage extends StatelessWidget {
               hintText: "请输入提交描述,不可为空",
               hintStyle: TextStyle(
                 // color: ColorManager.colorCCCCCC,
-                fontSize: 20.sp,
+                fontSize: 20,
                 fontWeight: FontWeight.w400,
               ),
               enabledBorder: const UnderlineInputBorder(
@@ -56,7 +54,7 @@ class HocProcessPage extends StatelessWidget {
             // },
             style: TextStyle(
               // color: ColorManager.color2A2A2A,
-              fontSize: 20.sp,
+              fontSize: 20,
               fontWeight: FontWeight.w400,
             ),
             keyboardType: TextInputType.text,

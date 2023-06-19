@@ -1,11 +1,11 @@
+import 'package:cross_file/cross_file.dart';
+import 'package:desktop_drop/desktop_drop.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:macdemo/hoc_process/view.dart';
-import 'logic.dart';
-import 'package:desktop_drop/desktop_drop.dart';
-import 'package:cross_file/cross_file.dart';
 import 'package:macdemo/platform_enviorment/view.dart';
+
+import 'logic.dart';
 
 class DargProjectPage extends StatefulWidget {
   @override
@@ -85,7 +85,8 @@ class _DargProjectPageState extends State<DargProjectPage> {
         alignment: Alignment.center,
         // height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width / (content.length) - 1,
-        color: (type == 0 ? state.draggingAdhoc : state.draggingGit) ? Colors.blue.withOpacity(0.4) : Colors.transparent,
+        color:
+            (type == 0 ? state.draggingAdhoc : state.draggingGit) ? Colors.blue.withOpacity(0.4) : Colors.transparent,
         child: Text(content[type]),
       ),
     );

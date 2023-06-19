@@ -1,7 +1,6 @@
 /*封装项目中大多数情况下的按钮使用*/
 /*没有对外暴露child,不让去重写child控件,防止自定义TextStyle*/
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 Widget htButton({
   Widget? child, //自定义child
@@ -25,14 +24,14 @@ Widget htButton({
     style: ButtonStyle(
       textStyle: MaterialStateProperty.all(
         TextStyle(
-          fontSize: fontSize ?? 14.sp, //功能按钮类UI图默认都是14
+          fontSize: fontSize ?? 14, //功能按钮类UI图默认都是14
           fontWeight: fontWeight ?? FontWeight.w500, //功能按钮类UI都是Medium
         ),
       ),
       fixedSize: MaterialStateProperty.all(
         Size(
           width ?? 0, //自定义宽度
-          height ?? 44.w, //自定义高度
+          height ?? 44, //自定义高度
         ),
       ),
       backgroundColor: enable == true //不在textStyle中设置,便于buttonTheme统一修改

@@ -1,9 +1,8 @@
-import 'dart:ffi';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 import 'package:process_run/shell.dart';
+
 import 'state.dart';
 
 class HocProcessLogic extends GetxController {
@@ -30,7 +29,7 @@ class HocProcessLogic extends GetxController {
     print(state.textController.text);
     SmartDialog.showLoading(msg: '正在处理...');
     runShell();
-  } 
+  }
 
   void runShell() async {
     String appPath = '';

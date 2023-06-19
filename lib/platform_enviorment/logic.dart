@@ -1,11 +1,8 @@
-import 'dart:ui';
-
 import 'package:common_utils/common_utils.dart';
-import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:process_run/shell.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:flutter/foundation.dart';
 
 import 'state.dart';
 

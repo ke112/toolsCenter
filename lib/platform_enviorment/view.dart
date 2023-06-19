@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:macdemo/utils/comment.dart';
+
 import 'logic.dart';
 
 class PlatformEnviormentPage extends StatelessWidget {
@@ -24,22 +23,22 @@ class PlatformEnviormentPage extends StatelessWidget {
         body: GetBuilder<PlatformEnviormentLogic>(builder: (logic) {
           return SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.all(10.0.w),
+              padding: EdgeInsets.all(10.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     '请选择要打包的平台',
                     style: TextStyle(
-                      fontSize: 20.sp,
+                      fontSize: 20,
                       fontWeight: FontWeight.normal,
                     ),
                   ),
-                  SizedBox(height: 5.w),
+                  SizedBox(height: 5),
                   Container(
                     // color: Colors.lightBlue,
-                    width: 200.w,
-                    height: 24.w,
+                    width: 200,
+                    height: 24,
                     child: MediaQuery.removePadding(
                       context: context,
                       removeBottom: true,
@@ -50,17 +49,15 @@ class PlatformEnviormentPage extends StatelessWidget {
                         itemCount: state.platformArr.length,
                         scrollDirection: Axis.horizontal,
                         separatorBuilder: (BuildContext context, int index) {
-                          return SizedBox(width: 10.w);
+                          return SizedBox(width: 10);
                         },
                         itemBuilder: (BuildContext context, int index) {
                           String value = state.platformArr[index];
                           return htButton(
                             title: value,
-                            width: (value.length * 4 + 20).w,
-                            height: 24.w,
-                            backgroundColor: index == state.platform
-                                ? state.selectColor
-                                : state.unselectColor,
+                            width: (value.length * 4 + 20),
+                            height: 24,
+                            backgroundColor: index == state.platform ? state.selectColor : state.unselectColor,
                             onPressed: () {
                               logic.updatePlatform(index);
                             },
@@ -69,19 +66,19 @@ class PlatformEnviormentPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 5.w),
+                  SizedBox(height: 5),
                   Text(
                     '请选择要打包的环境',
                     style: TextStyle(
-                      fontSize: 20.sp,
+                      fontSize: 20,
                       fontWeight: FontWeight.normal,
                     ),
                   ),
-                  SizedBox(height: 5.w),
+                  SizedBox(height: 5),
                   Container(
                     // color: Colors.lightBlue,
-                    width: 200.w,
-                    height: 24.w,
+                    width: 200,
+                    height: 24,
                     child: MediaQuery.removePadding(
                       context: context,
                       removeBottom: true,
@@ -92,17 +89,15 @@ class PlatformEnviormentPage extends StatelessWidget {
                         itemCount: state.enviormentArr.length,
                         scrollDirection: Axis.horizontal,
                         separatorBuilder: (BuildContext context, int index) {
-                          return SizedBox(width: 10.w);
+                          return SizedBox(width: 10);
                         },
                         itemBuilder: (BuildContext context, int index) {
                           String value = state.enviormentArr[index];
                           return htButton(
                             title: value,
-                            width: (value.length * 4 + 20).w,
-                            height: 24.w,
-                            backgroundColor: index == state.enviorment
-                                ? state.selectColor
-                                : state.unselectColor,
+                            width: (value.length * 4 + 20),
+                            height: 24,
+                            backgroundColor: index == state.enviorment ? state.selectColor : state.unselectColor,
                             onPressed: () {
                               logic.updateEnviorment(index);
                             },
@@ -111,22 +106,22 @@ class PlatformEnviormentPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 5.w),
+                  SizedBox(height: 5),
                   Text(
                     '选择完毕,点击以下按钮开始打包',
                     style: TextStyle(
-                      fontSize: 20.sp,
+                      fontSize: 20,
                       fontWeight: FontWeight.normal,
                     ),
                   ),
-                  SizedBox(height: 5.w),
+                  SizedBox(height: 5),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       htButton(
                         title: state.isArchiveing ? "正在打包" : "开始打包",
-                        width: 50.w,
-                        height: 24.w,
+                        width: 50,
+                        height: 24,
                         backgroundColor: state.isArchiveing
                             ? Colors.deepOrange
                             : logic.judgeEnable()
@@ -136,12 +131,12 @@ class PlatformEnviormentPage extends StatelessWidget {
                           logic.runShell();
                         },
                       ),
-                      SizedBox(height: 5.w),
+                      SizedBox(height: 5),
                       Text(
                         logic.commonTimerDes(),
                         style: TextStyle(
                           color: Colors.grey,
-                          fontSize: 16.sp,
+                          fontSize: 16,
                           fontWeight: FontWeight.normal,
                         ),
                       ),

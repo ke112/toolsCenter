@@ -33,13 +33,13 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  desktop_drop: 0.4.1 #桌面版接受路径
-  process_run: 0.13.0 #执行shell脚本
-  get: 4.6.5 #路由管理,状态管理
-  flutter_screenutil: 5.6.0 #屏幕适配
-  flutter_smart_dialog: 4.9.2 #文字提示
-  common_utils: 2.1.0 #工具类
-  shared_preferences: 2.1.2 #本地存储
+  desktop_drop: ^0.4.1 #桌面版接受路径
+  process_run: ^0.13.0 #执行shell脚本
+  get: ^4.6.5 #路由管理,状态管理
+  # flutter_screenutil: 5.5.1 #屏幕适配
+  flutter_smart_dialog: ^4.9.2 #文字提示
+  common_utils: ^2.1.0 #工具类
+  shared_preferences: ^2.1.2 #本地存储
 
 dev_dependencies:
   flutter_test:

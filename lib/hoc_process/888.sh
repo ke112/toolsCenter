@@ -6,7 +6,6 @@
 
 cd $1
 pwd
-git add --all
 git stash
 git pull
 git stash pop
@@ -18,4 +17,3 @@ else
     git push
     echo '代码提交完成'
 fi
-
