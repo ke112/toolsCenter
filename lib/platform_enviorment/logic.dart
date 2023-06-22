@@ -34,21 +34,21 @@ class PlatformEnviormentLogic extends GetxController {
       int enviorment = value.getInt('enviorment') as int;
       state.platform = platform; //获取历史选择平台
       state.enviorment = enviorment; //获取历史选择环境
-      print("${state.platform}");
-      print("${state.enviorment}");
+      debugPrint("${state.platform}");
+      debugPrint("${state.enviorment}");
 
-      print(localPath);
+      debugPrint(localPath);
       List<String>? historyTimes = value.getStringList(localPath); //获取历史打包时长
       if (historyTimes?.isNotEmpty == true) {
         int total = 0;
         for (String obj in historyTimes!) {
           total += int.parse(obj);
-          print("获取到历史的打包时间 ${showTimerDes(int.parse(obj))}");
+          debugPrint("获取到历史的打包时间 ${showTimerDes(int.parse(obj))}");
         }
         state.averagePackingTime = (total / historyTimes.length).truncate();
         showTimerDes(state.averagePackingTime);
       } else {
-        print("暂无记录");
+        debugPrint("暂无记录");
       }
       update();
     });
@@ -92,7 +92,7 @@ class PlatformEnviormentLogic extends GetxController {
 
   /*处理秒数转成描述*/
   showTimerDes(int value) {
-    // print(value);
+    // debugPrint(value);
     int minuter = value ~/ 60;
     int second = value % 60;
     String minuterStr = '';
@@ -160,12 +160,12 @@ class PlatformEnviormentLogic extends GetxController {
       return;
     }
     var shell = Shell();
-    print('-----getx传过来参数------ ${localPath}');
+    debugPrint('-----getx传过来参数------ ${localPath}');
     String platform = (state.platform + 1).toString();
     String enviorment = (state.enviorment + 1).toString();
 
-    print(platform);
-    print(enviorment);
+    debugPrint(platform);
+    debugPrint(enviorment);
 
     //更新打包按钮的状态
     state.isArchiveing = true;
@@ -184,10 +184,10 @@ class PlatformEnviormentLogic extends GetxController {
     String shellCommand = '''
     sh $shellPath $localPath $platform $enviorment 1
     ''';
-    print('shellCommand: $shellCommand');
+    debugPrint('shellCommand: $shellCommand');
     /*开始执行脚本*/
     await shell.run(shellCommand).then((value) async {
-      print(value);
+      debugPrint(value.toString());
       // SmartDialog.dismiss();
       // //恢复打包按钮的状态
       // state.isArchiveing = false;

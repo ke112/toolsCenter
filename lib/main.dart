@@ -8,7 +8,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
-import 'package:macdemo/darg_project/view.dart';
+import 'package:macdemo/function_list/function_list_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      home: DargProjectPage(),
+      home: FunctionListPage(),
       // home: ArchiveResultPage(),
       debugShowCheckedModeBanner: false,
       // 文字提示

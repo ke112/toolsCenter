@@ -26,7 +26,7 @@ class HocProcessLogic extends GetxController {
 
   /*开始提交*/
   void startGit() async {
-    print(state.textController.text);
+    debugPrint(state.textController.text);
     SmartDialog.showLoading(msg: '正在处理...');
     runShell();
   }
