@@ -19,7 +19,7 @@ class ClickWidget extends StatefulWidget {
 class _ClickWidgetState extends State<ClickWidget> {
   bool _isClickable = true;
 
-  void _onPressed() {
+  void _onTap() {
     if (_isClickable) {
       setState(() {
         _isClickable = false;
@@ -39,7 +39,7 @@ class _ClickWidgetState extends State<ClickWidget> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: _onPressed,
+      onTap: _onTap,
       child: widget.child,
     );
   }

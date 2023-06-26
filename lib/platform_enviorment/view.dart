@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:macdemo/utils/comment.dart';
+import 'package:macdemo/widgets/commont_widget.dart';
 
 import 'logic.dart';
 
@@ -23,18 +23,18 @@ class PlatformEnviormentPage extends StatelessWidget {
         body: GetBuilder<PlatformEnviormentLogic>(builder: (logic) {
           return SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     '请选择要打包的平台',
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.normal,
                     ),
                   ),
-                  SizedBox(height: 5),
+                  const SizedBox(height: 5),
                   Container(
                     // color: Colors.lightBlue,
                     width: 200,
@@ -49,7 +49,7 @@ class PlatformEnviormentPage extends StatelessWidget {
                         itemCount: state.platformArr.length,
                         scrollDirection: Axis.horizontal,
                         separatorBuilder: (BuildContext context, int index) {
-                          return SizedBox(width: 10);
+                          return const SizedBox(width: 10);
                         },
                         itemBuilder: (BuildContext context, int index) {
                           String value = state.platformArr[index];
@@ -66,15 +66,15 @@ class PlatformEnviormentPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 5),
-                  Text(
+                  const SizedBox(height: 5),
+                  const Text(
                     '请选择要打包的环境',
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.normal,
                     ),
                   ),
-                  SizedBox(height: 5),
+                  const SizedBox(height: 5),
                   Container(
                     // color: Colors.lightBlue,
                     width: 200,
@@ -89,7 +89,7 @@ class PlatformEnviormentPage extends StatelessWidget {
                         itemCount: state.enviormentArr.length,
                         scrollDirection: Axis.horizontal,
                         separatorBuilder: (BuildContext context, int index) {
-                          return SizedBox(width: 10);
+                          return const SizedBox(width: 10);
                         },
                         itemBuilder: (BuildContext context, int index) {
                           String value = state.enviormentArr[index];
@@ -106,15 +106,15 @@ class PlatformEnviormentPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 5),
-                  Text(
+                  const SizedBox(height: 5),
+                  const Text(
                     '选择完毕,点击以下按钮开始打包',
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.normal,
                     ),
                   ),
-                  SizedBox(height: 5),
+                  const SizedBox(height: 5),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -131,10 +131,10 @@ class PlatformEnviormentPage extends StatelessWidget {
                           logic.runShell();
                         },
                       ),
-                      SizedBox(height: 5),
+                      const SizedBox(height: 5),
                       Text(
                         logic.commonTimerDes(),
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.grey,
                           fontSize: 16,
                           fontWeight: FontWeight.normal,

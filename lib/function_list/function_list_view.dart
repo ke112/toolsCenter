@@ -3,7 +3,8 @@ import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 import 'package:macdemo/hoc_process/view.dart';
 import 'package:macdemo/platform_enviorment/view.dart';
-import 'package:macdemo/utils/click_widget.dart';
+import 'package:macdemo/utils/shell_manager.dart';
+import 'package:macdemo/widgets/click_widget.dart';
 import 'package:macdemo/widgets/drop_target_widget.dart';
 
 import 'function_list_logic.dart';
@@ -29,7 +30,7 @@ class FunctionListPage extends StatelessWidget {
           style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
-            color: Color(0xFFF6A350),
+            color: Color(0xFF333333),
             height: 1.0,
           ),
         ),
@@ -98,7 +99,6 @@ class FunctionListPage extends StatelessWidget {
                           color: Color(0xFFF6A350),
                           height: 1.0,
                         ),
-                        maxLines: 3,
                       ),
                     ),
                     const Spacer(),
@@ -106,9 +106,8 @@ class FunctionListPage extends StatelessWidget {
                       height: MediaQuery.of(context).size.width * 0.35,
                       child: DropTargetWidget(
                         callback: (path) {
-                          debugPrint('拖入的文件路径: $path');
                           state.currentDragPath = path;
-                          ontapEvent();
+                          handleEvent();
                         },
                       ),
                     ),
@@ -122,11 +121,13 @@ class FunctionListPage extends StatelessWidget {
     );
   }
 
-  void ontapEvent() {
+  void handleEvent() async {
     if (state.currentIndex == -1) {
       SmartDialog.showToast('请先选择左侧功能');
       return;
     }
+    bool hasGit = await ShellManager().isGitRepository(state.currentDragPath);
+    if (!hasGit) return;
     switch (state.currentIndex) {
       case 0:
         {
@@ -141,6 +142,5 @@ class FunctionListPage extends StatelessWidget {
       default:
         break;
     }
-    debugPrint('响应了');
   }
 }

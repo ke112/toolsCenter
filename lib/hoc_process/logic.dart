@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
-import 'package:process_run/shell.dart';
+import 'package:macdemo/utils/shell_manager.dart';
 
 import 'state.dart';
 
@@ -12,7 +12,6 @@ class HocProcessLogic extends GetxController {
 
   @override
   void onReady() async {
-    // TODO: implement onReady
     super.onReady();
     localPath = Get.arguments['path'];
     runShell();
@@ -20,7 +19,6 @@ class HocProcessLogic extends GetxController {
 
   @override
   void onClose() {
-    // TODO: implement onClose
     super.onClose();
   }
 
@@ -38,9 +36,8 @@ class HocProcessLogic extends GetxController {
     } else {
       appPath = '/Applications/macdemo/lib/hoc_process/888.sh';
     }
-    var shell = Shell();
     /*开始执行脚本*/
-    await shell.run('''
+    await ShellManager().run('''
     sh $appPath $localPath ${state.textController.text}
     ''').then((value) async {
       SmartDialog.dismiss();

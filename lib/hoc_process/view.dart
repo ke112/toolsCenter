@@ -29,22 +29,22 @@ class HocProcessPage extends StatelessWidget {
       ),
       body: GetBuilder<HocProcessLogic>(builder: (logic) {
         return Container(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: TextField(
             controller: state.textController,
             focusNode: FocusNode(),
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               hintText: "请输入提交描述,不可为空",
               hintStyle: TextStyle(
                 // color: ColorManager.colorCCCCCC,
                 fontSize: 20,
                 fontWeight: FontWeight.w400,
               ),
-              enabledBorder: const UnderlineInputBorder(
+              enabledBorder: UnderlineInputBorder(
                 // 不是焦点的时候颜色
                 borderSide: BorderSide(color: Colors.white70),
               ),
-              focusedBorder: const UnderlineInputBorder(
+              focusedBorder: UnderlineInputBorder(
                 // 焦点集中的时候颜色
                 borderSide: BorderSide(color: Colors.white70),
               ),
@@ -52,7 +52,7 @@ class HocProcessPage extends StatelessWidget {
             // onSubmitted: (v) {
             // //监听点了搜索
             // },
-            style: TextStyle(
+            style: const TextStyle(
               // color: ColorManager.color2A2A2A,
               fontSize: 20,
               fontWeight: FontWeight.w400,

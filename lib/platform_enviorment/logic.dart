@@ -1,7 +1,7 @@
 import 'package:common_utils/common_utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
-import 'package:process_run/shell.dart';
+import 'package:macdemo/utils/shell_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'state.dart';
@@ -159,7 +159,6 @@ class PlatformEnviormentLogic extends GetxController {
     if (judgeEnable() == false || state.isArchiveing == true) {
       return;
     }
-    var shell = Shell();
     debugPrint('-----getx传过来参数------ ${localPath}');
     String platform = (state.platform + 1).toString();
     String enviorment = (state.enviorment + 1).toString();
@@ -186,7 +185,7 @@ class PlatformEnviormentLogic extends GetxController {
     ''';
     debugPrint('shellCommand: $shellCommand');
     /*开始执行脚本*/
-    await shell.run(shellCommand).then((value) async {
+    await ShellManager().run(shellCommand).then((value) async {
       debugPrint(value.toString());
       // SmartDialog.dismiss();
       // //恢复打包按钮的状态
