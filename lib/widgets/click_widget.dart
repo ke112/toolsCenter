@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ClickWidget extends StatefulWidget {
   final Widget child;
-  final Function onTap;
+  final VoidCallback onTap;
   final Duration debounceDuration;
 
   const ClickWidget({
@@ -21,16 +21,11 @@ class _ClickWidgetState extends State<ClickWidget> {
 
   void _onTap() {
     if (_isClickable) {
-      setState(() {
-        _isClickable = false;
-      });
+      _isClickable = false;
       widget.onTap();
-
       Future.delayed(widget.debounceDuration, () {
         if (mounted) {
-          setState(() {
-            _isClickable = true;
-          });
+          _isClickable = true;
         }
       });
     }

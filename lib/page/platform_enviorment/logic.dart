@@ -176,9 +176,9 @@ class PlatformEnviormentLogic extends GetxController {
 
     String shellPath = '';
     if (kDebugMode == true) {
-      shellPath = '/Users/ke/Desktop/macdemo/lib/platform_enviorment/dabao.sh';
+      shellPath = '/Users/ke/Desktop/macdemo/lib/page/platform_enviorment/dabao.sh';
     } else {
-      shellPath = '/Applications/macdemo/lib/platform_enviorment/dabao.sh';
+      shellPath = '/Applications/macdemo/lib/page/platform_enviorment/dabao.sh';
     }
     String shellCommand = '''
     sh $shellPath $localPath $platform $enviorment 1
