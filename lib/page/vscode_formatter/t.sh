@@ -60,6 +60,7 @@ if [[ $2 != 2 ]]; then
 fi
 
 content=$(cat $t2)
+rm -rf $t2
 
 function print_content() {
     content=$1

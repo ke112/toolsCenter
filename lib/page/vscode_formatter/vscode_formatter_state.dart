@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+const String isAutoCopy = 'isAutoCopy';
+
 /// @description:
 /// @author
 /// @date: 2023-07-19 14:33:37

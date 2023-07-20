@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:macdemo/utils/common_tools.dart';
 import 'package:macdemo/utils/shared_pref.dart';
@@ -17,14 +16,13 @@ class VScodeFormatterLogic extends GetxController {
   @override
   void onReady() async {
     super.onReady();
-    state.isAutoCopy = await SPTool().getBoolForkey('isAutoCopy');
+    state.isAutoCopy = await SPTool().getBoolForkey(isAutoCopy);
     update();
   }
 
   @override
   void onClose() {
     super.onClose();
-    debugPrint('销毁了');
     state.leftController.dispose();
     state.rightController.dispose();
   }
@@ -35,9 +33,9 @@ class VScodeFormatterLogic extends GetxController {
       CommonTools.showToast('请先输入代码');
       return;
     }
-    String result = await ShellManager()
-        .run2('${Directory.current.path}/lib/page/vscode_formatter/t.sh', params: [(state.leftController.text), '2']);
-    state.rightController.text = result;
+    String? result = await ShellManager().runScript('${Directory.current.path}/lib/page/vscode_formatter/t.sh',
+        args: [(state.leftController.text), '2']);
+    state.rightController.text = result ?? '';
     update();
     if (state.isAutoCopy) {
       copy();
@@ -50,9 +48,9 @@ class VScodeFormatterLogic extends GetxController {
       CommonTools.showToast('请先输入代码');
       return;
     }
-    String result = await ShellManager()
-        .run2('${Directory.current.path}/lib/page/vscode_formatter/t.sh', params: [(state.leftController.text)]);
-    state.rightController.text = result;
+    String? result = await ShellManager()
+        .runScript('${Directory.current.path}/lib/page/vscode_formatter/t.sh', args: [(state.leftController.text)]);
+    state.rightController.text = result ?? '';
     update();
     if (state.isAutoCopy) {
       copy();

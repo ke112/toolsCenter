@@ -32,9 +32,9 @@ class HocProcessLogic extends GetxController {
   void runShell() async {
     String appPath = '';
     if (kDebugMode == true) {
-      appPath = '/Users/ke/Desktop/macdemo/lib/hoc_process/888.sh';
+      appPath = '/Users/ke/Desktop/macdemo/lib/page/hoc_process/888.sh';
     } else {
-      appPath = '/Applications/macdemo/lib/hoc_process/888.sh';
+      appPath = '/Applications/macdemo/lib/page/hoc_process/888.sh';
     }
     /*开始执行脚本*/
     await ShellManager().run('''

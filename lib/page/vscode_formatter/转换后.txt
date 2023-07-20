@@ -1,7 +1,0 @@
-AnnotatedRegion<SystemUiOverlayStyle>(
-  value: SystemUiOverlayStyle(
-    statusBarColor: Colors.transparent,
-    statusBarIconBrightness: Brightness.dark,
-  ),
-  child: visibilityReport(child: buildBase()),
-)

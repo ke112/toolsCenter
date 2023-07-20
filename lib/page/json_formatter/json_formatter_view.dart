@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:macdemo/widgets/click_widget.dart';
+import 'package:macdemo/widgets/item_widget.dart';
 
 import 'json_formatter_logic.dart';
 import 'json_formatter_state.dart';
@@ -99,31 +100,19 @@ class JsonFormatterPage extends StatelessWidget {
         ),
         Align(
           alignment: Alignment.centerRight,
-          child: ClickWidget(
-            onTap: () {
-              if (left) {
-                logic.transform();
-              } else {
-                logic.copy();
-              }
-            },
-            child: Container(
-              decoration: const BoxDecoration(
-                color: Colors.yellow,
-                borderRadius: BorderRadius.all(Radius.circular(8)),
-              ),
-              padding: const EdgeInsets.all(10),
-              child: Text(
-                left ? '转换' : '复制',
-                style: const TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.normal,
-                  color: Color(0xFFF6A350),
-                  height: 1.0,
+          child: left
+              ? TextButtonWidget(
+                  title: '转换',
+                  callback: () {
+                    logic.transform();
+                  },
+                )
+              : TextButtonWidget(
+                  title: '复制',
+                  callback: () {
+                    logic.copy();
+                  },
                 ),
-              ),
-            ),
-          ),
         )
       ],
     );

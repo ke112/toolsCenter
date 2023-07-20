@@ -64,7 +64,7 @@ class VScodeFormatterPage extends StatelessWidget {
                 onChanged: (bool value) {
                   state.isAutoCopy = !state.isAutoCopy;
                   logic.update();
-                  SPTool().setBoolForKey('isAutoCopy', value);
+                  SPTool().setBoolForKey(isAutoCopy, value);
                 },
               ),
             ),
@@ -134,14 +134,14 @@ class VScodeFormatterPage extends StatelessWidget {
               ? Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    TitleButtonWidget(
+                    TextButtonWidget(
                       title: '格式化对齐',
                       callback: () {
                         logic.formatJson();
                       },
                     ),
                     const SizedBox(height: 10),
-                    TitleButtonWidget(
+                    TextButtonWidget(
                       title: '转换代码块',
                       callback: () {
                         logic.transform();
@@ -149,7 +149,7 @@ class VScodeFormatterPage extends StatelessWidget {
                     )
                   ],
                 )
-              : TitleButtonWidget(
+              : TextButtonWidget(
                   title: '复制',
                   callback: () {
                     logic.copy();

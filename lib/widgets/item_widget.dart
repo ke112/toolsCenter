@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:macdemo/widgets/click_widget.dart';
 
-class TitleButtonWidget extends StatelessWidget {
+class TextButtonWidget extends StatelessWidget {
   final String title;
   final VoidCallback callback;
-  const TitleButtonWidget({super.key, required this.title, required this.callback});
+  const TextButtonWidget({super.key, required this.title, required this.callback});
 
   @override
   Widget build(BuildContext context) {

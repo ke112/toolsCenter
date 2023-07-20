@@ -13,13 +13,11 @@ class JsonFormatterLogic extends GetxController {
   @override
   void onReady() {
     super.onReady();
-    state.leftController.text = "";
   }
 
   @override
   void onClose() {
     super.onClose();
-    debugPrint('销毁了');
     state.leftController.dispose();
     state.rightController.dispose();
   }
