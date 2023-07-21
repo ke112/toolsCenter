@@ -15,6 +15,7 @@ class DropTargetWidget extends StatefulWidget {
 class _DropTargetWidgetState extends State<DropTargetWidget> {
   final List<XFile> _list = [];
   bool isDragging = false; //是否拖拽到区域内
+  String content = ''; //拖拽后的路径
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +32,8 @@ class _DropTargetWidgetState extends State<DropTargetWidget> {
             XFile file = detail.files[i];
             _list.add(file);
             widget.callback.call(file.path);
+            content = file.path;
+            if (mounted) setState(() {});
             return;
           }
         }
@@ -52,7 +55,7 @@ class _DropTargetWidgetState extends State<DropTargetWidget> {
         alignment: Alignment.center,
         // height: MediaQuery.of(context).size.height,
         color: isDragging ? Colors.blue.withOpacity(0.4) : Colors.grey.withOpacity(0.2),
-        child: const Text('拖动到此处'),
+        child: Text(content.isNotEmpty ? content : '请拖入到此处'),
       ),
     );
   }

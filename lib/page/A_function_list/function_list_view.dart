@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:macdemo/page/heic_transform_page/heic_transform_page_view.dart';
 import 'package:macdemo/page/hoc_process/view.dart';
 import 'package:macdemo/page/json_formatter/json_formatter_view.dart';
 import 'package:macdemo/page/platform_enviorment/view.dart';
@@ -198,14 +199,13 @@ class FunctionListPage extends StatelessWidget {
   void handleSingleEvent(FunctionModel model) {
     switch (model.index) {
       case 10001:
-        {
-          Get.to(() => JsonFormatterPage(), arguments: {"title": model.title});
-        }
+        Get.to(() => JsonFormatterPage(), arguments: {"title": model.title});
+        break;
+      case 10002:
+        Get.to(() => HeicTransformPagePage(), arguments: {"title": model.title});
         break;
       case 10003:
-        {
-          Get.to(() => VScodeFormatterPage(), arguments: {"title": model.title});
-        }
+        Get.to(() => VScodeFormatterPage(), arguments: {"title": model.title});
         break;
       default:
         break;

@@ -11,6 +11,9 @@ class CommonTools {
 
   /// 文字提示
   static showToast(String str) {
+    if (str.isEmpty) {
+      return;
+    }
     SmartDialog.showToast(str);
   }
 }
