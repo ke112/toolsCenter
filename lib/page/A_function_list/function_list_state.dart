@@ -2,6 +2,7 @@
 /// @author
 /// @date: 2023-06-19 19:44:35
 class FunctionListState {
+  String version = '';
   //功能列表
   List<FunctionModel> dragFuncList = [];
   List<FunctionModel> singleFuncList = [];
@@ -24,8 +25,9 @@ class FunctionListState {
     singleFuncList.add(FunctionModel(10003, '转vs代码块'));
     singleFuncList.add(FunctionModel(10004, '压缩图片'));
     singleFuncList.add(FunctionModel(10005, '转webp'));
-    singleFuncList.add(FunctionModel(10006, 'jsonToDart'));
-    singleFuncList.add(FunctionModel(10007, '生成随机秘钥'));
+    singleFuncList.add(FunctionModel(10006, 'webm转mp4'));
+    singleFuncList.add(FunctionModel(10007, 'jsonToDart'));
+    singleFuncList.add(FunctionModel(10008, '生成随机秘钥'));
   }
 }
 

@@ -24,151 +24,149 @@ class FunctionListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        title: const Text(
-          'Mac',
-          style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-            color: Color(0xFF333333),
-            height: 1.0,
+    return GetBuilder<FunctionListLogic>(builder: (_) {
+      return Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          elevation: 0,
+          title: Text(
+            'dart : ${state.version}',
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: Color(0xFF333333),
+              height: 1.0,
+            ),
           ),
         ),
-      ),
-      body: GetBuilder<FunctionListLogic>(
-        builder: (controller) {
-          return Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.all(6.0),
-                      child: Text(
-                        '以下功能需要选择后,拖拽项目使用',
-                      ),
+        body: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.all(6.0),
+                    child: Text(
+                      '以下功能需要选择后,拖拽项目使用',
                     ),
-                    Expanded(
-                      child: ListView.builder(
-                        padding: EdgeInsets.zero,
-                        scrollDirection: Axis.vertical,
-                        addAutomaticKeepAlives: false,
-                        addRepaintBoundaries: false,
-                        shrinkWrap: true,
-                        // physics: const NeverScrollableScrollPhysics(),
-                        itemCount: state.dragFuncList.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          FunctionModel itemModel = state.dragFuncList[index];
-                          String title = itemModel.title;
-                          return ClickWidget(
-                            onTap: () {
-                              debugPrint('点击了功能列表 $index');
-                              state.currentIndex = index;
-                              logic.update();
-                            },
-                            child: Container(
-                              constraints: const BoxConstraints(
-                                minHeight: 40,
-                              ),
-                              alignment: Alignment.centerLeft,
-                              padding: const EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5),
-                              margin: const EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5),
-                              decoration: BoxDecoration(
-                                border: Border.all(width: 0.5, color: const Color(0xFF999999)),
-                                borderRadius: const BorderRadius.all(Radius.circular(8)),
-                              ),
-                              child: Row(
-                                children: [
-                                  Expanded(child: Text(title)),
-                                  SizedBox(
-                                    width: 30,
-                                    child: Visibility(
-                                      visible: state.currentIndex == index,
-                                      child: const Icon(Icons.check),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.5,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.all(6.0),
-                      child: Text(
-                        '以下功能可以单击直接使用',
-                      ),
-                    ),
-                    Wrap(
-                      children: state.singleFuncList.map((element) {
-                        String title = element.title;
+                  ),
+                  Expanded(
+                    child: ListView.builder(
+                      padding: EdgeInsets.zero,
+                      scrollDirection: Axis.vertical,
+                      addAutomaticKeepAlives: false,
+                      addRepaintBoundaries: false,
+                      shrinkWrap: true,
+                      // physics: const NeverScrollableScrollPhysics(),
+                      itemCount: state.dragFuncList.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        FunctionModel itemModel = state.dragFuncList[index];
+                        String title = itemModel.title;
                         return ClickWidget(
                           onTap: () {
-                            handleSingleEvent(element);
+                            debugPrint('点击了功能列表 $index');
+                            state.currentIndex = index;
+                            logic.update();
                           },
                           child: Container(
-                            // constraints: const BoxConstraints(
-                            //   minHeight: 50,
-                            // ),
-                            padding: const EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
+                            constraints: const BoxConstraints(
+                              minHeight: 40,
+                            ),
+                            alignment: Alignment.centerLeft,
+                            padding: const EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5),
                             margin: const EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5),
                             decoration: BoxDecoration(
                               border: Border.all(width: 0.5, color: const Color(0xFF999999)),
                               borderRadius: const BorderRadius.all(Radius.circular(8)),
                             ),
-                            child: Text(title),
-                          ),
-                        );
-                      }).toList(),
-                    ),
-                    const Spacer(),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.width * 0.2,
-                      child: Stack(
-                        children: [
-                          DropTargetWidget(
-                            callback: (path) {
-                              state.currentDragPath = path;
-                              handleDargEvent();
-                            },
-                          ),
-                          Container(
-                            margin: const EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
-                            child: Text(
-                              state.tips,
-                              style: const TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.normal,
-                                color: Color(0xFFF6A350),
-                                height: 1.0,
-                              ),
+                            child: Row(
+                              children: [
+                                Expanded(child: Text(title)),
+                                SizedBox(
+                                  width: 30,
+                                  child: Visibility(
+                                    visible: state.currentIndex == index,
+                                    child: const Icon(Icons.check),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                        ],
-                      ),
+                        );
+                      },
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ],
-          );
-        },
-      ),
-    );
+            ),
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 0.5,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.all(6.0),
+                    child: Text(
+                      '以下功能可以单击直接使用',
+                    ),
+                  ),
+                  Wrap(
+                    children: state.singleFuncList.map((element) {
+                      String title = element.title;
+                      return ClickWidget(
+                        onTap: () {
+                          handleSingleEvent(element);
+                        },
+                        child: Container(
+                          // constraints: const BoxConstraints(
+                          //   minHeight: 50,
+                          // ),
+                          padding: const EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
+                          margin: const EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5),
+                          decoration: BoxDecoration(
+                            border: Border.all(width: 0.5, color: const Color(0xFF999999)),
+                            borderRadius: const BorderRadius.all(Radius.circular(8)),
+                          ),
+                          child: Text(title),
+                        ),
+                      );
+                    }).toList(),
+                  ),
+                  const Spacer(),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.width * 0.2,
+                    child: Stack(
+                      children: [
+                        DropTargetWidget(
+                          callback: (path) {
+                            state.currentDragPath = path;
+                            handleDargEvent();
+                          },
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
+                          child: Text(
+                            state.tips,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.normal,
+                              color: Color(0xFFF6A350),
+                              height: 1.0,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      );
+    });
   }
 
   //处理拖拽项目功能事件
