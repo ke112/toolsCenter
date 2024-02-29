@@ -22,13 +22,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       home: FunctionListPage(),
-      // home: ArchiveResultPage(),
       debugShowCheckedModeBanner: false,
       // 文字提示
-      // here
       navigatorObservers: [FlutterSmartDialog.observer],
-      // here
       builder: FlutterSmartDialog.init(),
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
     );
   }
 }
