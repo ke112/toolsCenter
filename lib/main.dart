@@ -1,10 +1,3 @@
-/*
- * @Author: zhangzhihua
- * @Date: 2022-03-15 09:50:45
- * @LastEditors: zhangzhihua
- * @LastEditTime: 2022-10-24 17:30:26
- * @Description: 
- */
 import 'package:flutter/material.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';

@@ -30,8 +30,8 @@ class FunctionListPage extends StatelessWidget {
           backgroundColor: Colors.white,
           elevation: 0,
           title: Text(
-            'dart : ${state.version}',
-            style: TextStyle(
+            'dart : ${state.version} version:${state.packageInfo.version}',
+            style: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
               color: Color(0xFF333333),

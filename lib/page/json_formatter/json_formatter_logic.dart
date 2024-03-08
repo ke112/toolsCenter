@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:macdemo/utils/common_tools.dart';
 
@@ -9,11 +8,6 @@ import 'json_formatter_state.dart';
 /// @date: 2023-06-26 11:56:52
 class JsonFormatterLogic extends GetxController {
   final state = JsonFormatterState();
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
 
   @override
   void onClose() {

@@ -1,3 +1,5 @@
+import 'package:package_info_plus/package_info_plus.dart';
+
 /// @description:
 /// @author
 /// @date: 2023-06-19 19:44:35
@@ -29,6 +31,16 @@ class FunctionListState {
     singleFuncList.add(FunctionModel(10007, 'jsonToDart'));
     singleFuncList.add(FunctionModel(10008, '生成随机秘钥'));
   }
+  
+  //App包信息
+  PackageInfo packageInfo = PackageInfo(
+    appName: 'Unknown',
+    packageName: 'Unknown',
+    version: 'Unknown',
+    buildNumber: 'Unknown',
+    buildSignature: 'Unknown',
+    installerStore: 'Unknown',
+  );
 }
 
 class FunctionModel {
